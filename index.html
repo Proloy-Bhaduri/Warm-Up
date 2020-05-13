@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ardent PHP Course </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<style type="text/css">
+.default{padding:5%;border:2px dashed rgba(0,0,0,.3);font-size:16px;align-items:center}label{color:green;font-size:22px;padding:2%;margin-bottom:20px;text-align:center}#factrender{text-align:center;background-color:rgba(0,0,0,.1);padding:20px;font-size:20px;margin:10%}form{text-align:center}input[type=text]{outline:0;text-align:center;align-content:center;border:1px solid green;padding:15px;font-size:18px}.checkbtn{background:green;color:#fff;outline:0;border:0;margin-left:-6px;text-align:center;padding:16px 16px;font-size:18px;cursor:pointer}input[type=text]:focus{border-color:green}
+	</style>
+</head>
+<body>
+ <label>Calculate Factorial and Check whether it's Prime</label>
+ <form method="post" action="" class="default">
+
+  	<input type="text" name="fact" id="num" class="number" placeholder="Enter a number" required>
+  <button type="button" name="factcheck" class="checkbtn" onclick="print(); return false">Calculate</button>
+   <p  id="factrender"></p> &copy; Proloy Bhaduri
+</form>
+ 
+ <script type="text/javascript">
+ 	var n ;
+  //Factorial Function
+  function factorial(n){
+  	var fact=1;
+  	for(var i = 1;i<=n;i++)
+        fact = fact*i;
+  return fact;
+  }
+  //isPrime function
+   function isPrime(n1){
+    for(i=2;i<n1;i++)
+       if(n1%i==0) return false; 
+    return true;          
+  }
+  function print()
+  {
+     var val = parseInt(document.getElementById("num").value);
+     if(val==null || val==undefined) alert("Please fill up the text box");
+     var res = document.getElementById("factrender");
+     console.log(factorial(val));
+     var result =  factorial(val);
+     var res2;
+     if(isPrime(val)) res2 = "Prime";
+     else res2 = "Composite"; 
+     res.innerHTML= val+"! = <b>"+result+"</b><br>"+""+val+" is a <b>" + res2+" number</b>";
+  }
+
+ </script>
+
+</body>
+</html>
