@@ -34,6 +34,7 @@
   function print()
   {
      var val = parseInt(document.getElementById("num").value);
+	  if(val < -1) {alert("Invalid input");}return;
      if(val==1 || val==0) { alert(" 1 and 0 are neither prime nor composite "); return;}
      var res = document.getElementById("factrender");
      console.log(factorial(val));
